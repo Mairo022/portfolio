@@ -1,0 +1,166 @@
+body {
+    background: repeating-linear-gradient(
+            45deg,
+            #142e55 0px,
+            #11284b 150px,
+            #11284b 550px
+    );
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto;
+    font-family: "Noto Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header {
+    max-width: 90vw;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 75px 0;
+    text-align: center;
+}
+
+.header__title {
+    display: inline;
+    width: 500px;
+    margin: 0;
+    font-size: 65px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.header__github img {
+    width: 65px;
+    margin-left: 16px;
+    transform: translateY(8px);
+}
+
+main {
+    padding: 0 25px 75px;
+    margin: 0 auto;
+}
+
+.introduction {
+    padding-bottom: 40px;
+}
+
+.introduction__text {
+    max-width: 1050px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 22px;
+    color: #efefef;
+}
+
+.projects__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.project {
+    max-width: 450px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: #FEFEFE;
+    box-shadow: 0 0 4px #acacac;
+    transition: .2s;
+}
+
+.project:hover {
+    box-shadow: 0 0 15px #acacac;
+}
+
+.project__image {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 3px #111;
+    border-radius: 1px;
+}
+
+.project__header {
+    display: inline-block;
+    color: #0f517f;
+    font-size: 26px;
+    margin: 16px auto 0;
+    padding-left: 2px;
+}
+
+.project__github img {
+    padding-left: 5px;
+    height: 26px;
+    transform: translateY(4px);
+}
+
+.project__link img {
+    padding-left: 1px;
+    height: 34px;
+    transform: translateY(9.5px);
+}
+
+.project__link img:hover,
+.project__github img:hover {
+    filter: drop-shadow(0 0 3px #266a9c);
+}
+
+.project__description {
+    color: #1f557c;
+    font-size: 17px;
+    padding: 0 5px;
+}
+
+.project__footer__list {
+    color: #a8b2d1;
+    text-align: left;
+    padding: 0 6px;
+}
+
+.project__footer__list > li {
+    display: inline;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.project__footer__list__dot {
+    color: #2272af;
+}
+
+.project__footer__list__tech {
+    color: #3ea892;
+}
+
+@media screen and (max-width: 1830px) {
+    .introduction__text {
+        max-width: 1050px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .introduction__text {
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .header {
+        padding-bottom: 25px;
+    }
+
+    .header__github {
+        content: "\A";
+        white-space: pre-line;
+        line-height: 74px;
+    }
+}
