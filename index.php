@@ -34,7 +34,7 @@
           <li class="project">
             <div class="project__image">
               <div class="project__image__container">
-                <img class="<?= "project__image__img img--{$project->title}" ?>" src="<?= $project->img ?>" alt="Project view"/>
+                <img class="<?= "project__image__img img--{$project->title}" ?>" src="<?= $project->img ?>" alt="<?= $project->title ?>"/>
               </div>
             </div>
             <div class="project__content">
@@ -52,14 +52,18 @@
                 <?php endforeach ?>
               </ul>
               <div class="project__content__links">
-                <a href="<?= $project->live ?>" class="project__content__links__link">
-                  <img class="project__content__links__link__img" src="img/external-link.svg" alt="Live link"/>
-                  Live Demo
-                </a>
-                <a href="<?= $project->github ?>" class="project__content__links__link">
-                  <img class="project__content__links__link__img" src="img/github-mark.svg" alt="GitHub"/>
-                  View Source
-                </a>
+                <?php if (isset($project->live)): ?>
+                  <a href="<?= $project->live ?>" class="project__content__links__link">
+                    <img class="project__content__links__link__img" src="img/external-link.svg" alt="Live link"/>
+                    Live Demo
+                  </a>
+                <?php endif; ?>
+                <?php foreach($project->github as $key => $link): ?>
+                  <a href="<?= $link ?>" class="project__content__links__link">
+                    <img class="project__content__links__link__img" src="img/github-mark.svg" alt="GitHub"/>
+                    <?= $key ?> Source
+                  </a>
+                <?php endforeach ?>
               </div>
             </div>
           </li>
@@ -68,9 +72,10 @@
     </section>
   </main>
   <footer id="footer">
-      <a class="footer__link" href="">GitHub</a>
-      <span class="footer__separator">||</span>
-      <a class="footer__link" href="">LinkedIn</a>
+    <h2 class="title--secondary">Contact</h2>
+    <a class="footer__link" href="<?= $me->github ?>">GitHub</a>
+    <span class="footer__separator">||</span>
+    <a class="footer__link" href="<?= $me->linkedin ?>">LinkedIn</a>
   </footer>
 </body>
 </html>
