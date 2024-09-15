@@ -15,13 +15,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/x-icon" href="./img/favicon.png">
-  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css?v=1.0.2">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap">
 </head>
 <body>
   <header id="header">
     <h1 id="header__title"><?= $me->name ?></h1>
+    <div class="links">
+      <a class="links__link" href="<?= $me->github ?>">GitHub</a>
+      <a class="links__link" href="<?= $me->linkedin ?>">LinkedIn</a>      
+    </div>
   </header>
   <main>
     <p id="intro">
@@ -34,7 +41,7 @@
           <li class="project">
             <div class="project__image">
               <div class="project__image__container">
-                <img class="<?= "project__image__img img--{$project->title}" ?>" src="<?= $project->img ?>" alt="<?= $project->title ?>"/>
+                <img class="<?= "project__image__img img--{$project->title}" ?>" src="<?= $project->img ?>" alt="<?= $project->title ?>" loading="lazy"/>
               </div>
             </div>
             <div class="project__content">
@@ -71,11 +78,5 @@
       </ul>
     </section>
   </main>
-  <footer id="footer">
-    <h2 class="title--secondary">Contact</h2>
-    <a class="footer__link" href="<?= $me->github ?>">GitHub</a>
-    <span class="footer__separator">||</span>
-    <a class="footer__link" href="<?= $me->linkedin ?>">LinkedIn</a>
-  </footer>
 </body>
 </html>
