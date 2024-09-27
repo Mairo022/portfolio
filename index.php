@@ -15,10 +15,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css?v=1.0.4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css?v=1.0.2">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap">
 </head>
@@ -31,17 +31,14 @@
     </div>
   </header>
   <main>
-    <p id="intro">
-      <?= $me->bio ?>
-    </p>
     <section id="projects">
       <h2 class="title--secondary">Projects</h2>
       <ul class="projects">
         <?php foreach($projects as $project): ?>
-          <li class="project">
+          <li class="<?= isset($project->img) ? 'project' : 'project project-no_image'?>">
             <div class="project__image">
               <div class="project__image__container">
-                <img class="<?= "project__image__img img--{$project->title}" ?>" src="<?= $project->img ?>" alt="<?= $project->title ?>" loading="lazy"/>
+                <img class="<?= "project__image__img img--{$project->title}" ?>" src="<?= $project->img ?>" alt="<?= $project->title ?>" loading="lazy">
               </div>
             </div>
             <div class="project__content">
@@ -59,18 +56,18 @@
                 <?php endforeach ?>
               </ul>
               <div class="project__content__links">
-                <?php if (isset($project->live)): ?>
-                  <a href="<?= $project->live ?>" class="project__content__links__link">
-                    <img class="project__content__links__link__img" src="img/external-link.svg" alt="Live link"/>
-                    Live Demo
-                  </a>
-                <?php endif; ?>
                 <?php foreach($project->github as $key => $link): ?>
                   <a href="<?= $link ?>" class="project__content__links__link">
-                    <img class="project__content__links__link__img" src="img/github-mark.svg" alt="GitHub"/>
+                    <img class="project__content__links__link__img" src="img/github-mark.svg" alt="GitHub">
                     <?= $key ?> Source
                   </a>
                 <?php endforeach ?>
+                <?php if (isset($project->live)): ?>
+                  <a href="<?= $project->live ?>" class="project__content__links__link">
+                    <img class="project__content__links__link__img" src="img/external-link.svg" alt="Live link">
+                    Live Demo
+                  </a>
+                <?php endif; ?>
               </div>
             </div>
           </li>

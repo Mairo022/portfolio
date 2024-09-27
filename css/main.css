@@ -1,5 +1,5 @@
 body {
-    background: hsl(220, 11%, 15%);
+    background: hsl(220, 11%, 12.5%);
     height: 100%;
     min-height: 100vh;
     margin: 0;
@@ -79,7 +79,6 @@ main {
 .title--tertiary {
     font-size: 1.8rem;
     font-weight: bold;
-    margin: 0 0 35px;
 }
 
 .projects {
@@ -108,7 +107,6 @@ main {
 
 .project__image__container {
     display: flex;
-    align-items: center;
     height: 100%;
 }
 
@@ -117,23 +115,32 @@ main {
 }
 
 .project__content {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
-    padding: 3.75rem;
+    padding: 3.5rem;
     background: white;
     transition: padding 0.5s ease;
+    box-shadow: 3px 2px 5px #999;
+}
+
+.project__content__title {
+    margin: 0 0 2rem;
 }
 
 .project__content__description {
+    flex-grow: 1;
     font-size: 1rem;
     line-height: 1.4rem;
-    margin-bottom: 35px;
+    margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 .project__content__stack__item {
     display: inline-block;
     color: hsl(222, 22%, 48%);
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
     padding: 8px;
     font-size: .85rem;
     border-radius: 4px;
@@ -141,7 +148,8 @@ main {
 }
 
 .project__content__links {
-    margin-top: 20px;
+    justify-self: end;
+    margin-top: 1rem;
 }
 
 .project__content__links__link {
@@ -174,9 +182,20 @@ main {
     filter: brightness(100);
 }
 
+.project-no_image .project__image {
+    display: none;
+}
+
+.project-no_image > .project__content > * {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 @media screen and (max-width: 1400px) {
     .project__content {
-        padding: 60px 35px;
+        padding: 3.5rem 2.5rem;
     }
 }
 
@@ -196,7 +215,7 @@ main {
 
     .project {
         flex-direction: column;
-        max-width: 850px;
+        max-width: 600px;
     }
 
     .project__image {
@@ -204,6 +223,7 @@ main {
     }
 
     .project__content {
+        padding: 3.5rem;
         text-align: center;
     }
 
